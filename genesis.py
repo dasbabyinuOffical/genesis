@@ -17,7 +17,7 @@ def template(id):
         "description":"Elon Musk Says Das Baby would be a hit!",
         "external_url":"http://dasbabyinu.com",
         "id":1,
-        "image":"http://dasbabyinu.com/nft/image/",
+        "image":"http://dasbabyinu.com/genesis/",
         "name":"DasBabyGenesis - #"
     }
 
