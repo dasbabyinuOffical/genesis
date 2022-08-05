@@ -6,7 +6,8 @@ yum install python3-devel
 pip3 install virtualenv
 virtualenv genesis
 source genesis/bin/activate
-pip3 install uwsgi flask
+pip3 install uwsgi flask 
+pip3 install flask-cors
 ```
 
 ## 修改nginx配置　
