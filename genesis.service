@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve genesis
+After=network.target
+
+[Service]
+User=root
+Group=nginx
+WorkingDirectory=/root/work/nft/genesis
+Environment="PATH=/root/work/nft/genesis/bin"
+ExecStart=/root/work/nft/genesis/bin/uwsgi --ini /root/work/nft/genesis/genesis.ini
+
+[Install]
+WantedBy=multi-user.target
