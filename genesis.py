@@ -31,7 +31,7 @@ def template(id):
         "attributes": [
             {
                 "trait_type": "Level",
-                "value": "bronze"
+                "value": "sliver"
             },
         ],
         "description": "Elon Musk Says Das Baby would be a hit!",
@@ -42,8 +42,8 @@ def template(id):
         "owner": "0"
     }
 
-    if int(id) > 788:
-        tpl["attributes"][0]["value"] = "sliver"
+    if int(id) > 212:
+        tpl["attributes"][0]["value"] = "bronze"
 
     tpl["id"] = int(id)
     tpl["image"] = tpl["image"] + id + ".jpg"
