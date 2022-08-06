@@ -38,7 +38,7 @@ def template(id):
         "external_url": "http://dasbabyinu.com",
         "id": 1,
         "image": "http://dasbabyinu.com/genesis/",
-        "name": "DasBabyGenesis - #",
+        "name": " - #",
         "owner": "0"
     }
 
@@ -48,7 +48,7 @@ def template(id):
     tpl["id"] = int(id)
     tpl["image"] = tpl["image"] + id + ".jpg"
 
-    tpl["name"] = tpl["name"] + id
+    tpl["name"] = tpl["attributes"][0]["value"] + tpl["name"] + id
 
     tpl["owner"] = OwnerOf(int(id))
     return tpl
