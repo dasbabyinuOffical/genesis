@@ -71,7 +71,7 @@ def nfts():
     start = int(request.args.get("start"))
     page = int(request.args.get("page"))
 
-    end = start+page+1
+    end = start+page
     if end > 1001:
         end = 1000
     if start > 1001:
