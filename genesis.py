@@ -49,7 +49,6 @@ def template(id):
     tpl["image"] = tpl["image"] + id + ".jpg"
 
     tpl["name"] = tpl["attributes"][0]["value"] + tpl["name"] + id
-    tpl["owner"] = OwnerOf(int(id))
     return tpl
 
 
