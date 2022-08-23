@@ -54,7 +54,7 @@ def template(id):
     tpl["name"] = tpl["attributes"][0]["value"] + tpl["name"] + id
     return tpl
 
-@application.route("/api/tx_list/<address>", methods=["GET"])
+@application.route("/trade/tx_list/<address>", methods=["GET"])
 def tx_list(address):
     url = BscUrl + address
     ret = []
