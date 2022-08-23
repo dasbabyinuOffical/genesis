@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from web3 import Web3, HTTPProvider
 import json
+import requests
 
 application = Flask(__name__)
 CORS(application, supports_credentials=True)
@@ -9,6 +10,8 @@ CORS(application, supports_credentials=True)
 
 Contract = '0x74155e8E00D19083033d3f58C0BA25eAE1856f84'
 Rpc = 'https://bsc-dataseed1.binance.org:443'
+
+BscUrl = "https://api.bscscan.com/api?apikey=X4G8XDAWSXKVGBSYVKFGX8FSEHS6Y57ZSZ&module=account&action=txlist&page=1&offset=10&sort=desc&address="
 
 
 with open('abi.json', 'r') as contract_abi:
@@ -51,6 +54,19 @@ def template(id):
     tpl["name"] = tpl["attributes"][0]["value"] + tpl["name"] + id
     return tpl
 
+@application.route("/api/tx_list/<address>", methods=["GET"])
+def tx_list(address):
+    url = BscUrl + address
+    ret = []
+    res = requests.get(url)
+    if res.status_code == 200:
+        data = res.json()
+        if data["result"]:
+            for item in data["result"]:
+                if item["hash"]:
+                    print("data is:",item["hash"])
+                    ret.append(item["hash"])
+    return  jsonify(ret)
 
 @application.route("/nft/<id>", methods=["GET"])
 def nft(id):
